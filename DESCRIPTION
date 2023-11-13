@@ -1,0 +1,19 @@
+Package: OsteoAnalizer
+Type: Package
+Title: Analyze data sets related to Osteoarthritis 
+Version: 0.1.0
+Author@R: person("Krutika", "Joshi",
+                  email = "krutikadilip@mail.utoronto.ca",
+                  role = c("aut", "cre"))
+Maintainer: Krutika Joshi <krutikadilip@mail.utoronto.ca>
+Description: Read, separte and clean CSV datasets realted to Osteoarthritis and 
+  separte them based on fluid levels, cartilage thickness, severity levels, and 
+  patient age. Visualize fluid levels, cartilage thickness and severity levels 
+  with respect to age.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+Depends:
+Suggests:
+RoxygenNote: 7.2.3
