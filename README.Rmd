@@ -27,22 +27,15 @@ R Version: R version 4.3.1 (2023-06-16)
 Platform: x86_64-apple-darwin20 
 
 
-## Installation
-
-You can install the development version of OsteoAnalizer like so:
-
-``` r
-require("devtools")
-devtools::install_github("ika-joshi/OsteoAnalizer", build_vignettes = TRUE)
-library("OsteoAnalizer")
 ```
 
 ## Installation
 
-You can install the development version of OsteoAnalizer like so:
+To install the latest version of the package:
 
 ``` r
-require("devtools")
+install.packages("devtools")
+library("devtools")
 devtools::install_github("ika-joshi/OsteoAnalizer", build_vignettes = TRUE)
 library("OsteoAnalizer")
 ```
@@ -52,7 +45,7 @@ A quick overview of the package
 
 ``` r
 ls("package:OsteoAnalizer")
-data(package = "OsteoAnalizer") # optional
+data(package = "OsteoAnalizer") 
 browseVignettes("OsteoAnalizer")
 ```
 OsteoAnalizer contains 3 functions:
@@ -67,23 +60,32 @@ makeScatter visualizes the relation between any two variables from fluid levels,
 <div style="text-align:center"><img src="inst/extdata/Overview.jpg" alt="OverviewPlot" width="750" height="650"/>
 
 ## Contributions
-The package was developed by Krutika Joshi. 
+The package was developed by Krutika Joshi. The author used a package called 
+sexDisaggregate produced by Fangyi Li to follow the general outline of an R project. 
+The author coded the all the functions independently with the aid of the resources listed below:
 
-* Package `na.omit` is used to clean datasets in `CleanCSVFile`.
+* Package `na.omit` is used to clean datasets in `CleanCSVFile`. 
 
 * Package `read.csv` is used to read the CSV file in `CleanCSVFile`.
 
 * Package `ggplot2` is used to create box plots and scatter plots respectively 
-in function `makeBox` and `makeScatter`. 
+in function `makeBox` and `makeScatter`. ChatGPT and R CODER was used to 
+understand the syntax of the functions present in ggplot2. GeeksforGeeks and 
+Holtz was used to understand to color templates in the plots. 
 
 * Package `cowplot` is used to combine boxplots plots in function `makeBox`.
+ChatGPT and Claus was used to understand the syntax of cowplot.
 
 * Package `ggpmisc` is used to show the line of regression in `makeScatter`.
+ChatGPT was used to understand the syntax of the functions present in ggpmisc.
 
-* Package `coef` is used to compute the line of regression in `makeScatter`.
+* Package `coef` is used to compute the line of regression in `makeScatter`. 
+ChatGPT was used to understand the syntax. R CODER was used to understand 
+the conceptual computations.
 
 * Package `lm` is used to compute the line of regression in `makeScatter`.
-
+ChatGPT was used to understand the syntax. R CODER was used to 
+understand the conceptual computations.
 
 ## References 
 
@@ -162,4 +164,7 @@ use the GitHub issues.
       |- test-makeBox.R
       |- test_makeScatter.R
     |- testthat.R
+  |- vignettes
+    |- .gitignore
+    |- Introduction_OsteoAnalizer.Rmd
 ```
