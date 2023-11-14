@@ -50,9 +50,15 @@ OsteoAnalizer::makeBox(dataMade)
 
 }
 \references{
-R Core Team (2022). R: A language and environment for statistical
-  computing. R Foundation for Statistical Computing, Vienna, Austria.
-  URL https://www.R-project.org/.
+Chatgpt. ChatGPT. (n.d.). https://openai.com/chatgpt
+
+Holtz, Y. (n.d.). Control Ggplot2 Boxplot colors. – the R Graph Gallery.
+https://r-graph-gallery.com/264-control-ggplot2-boxplot-colors.html
+
+Li, F. (2022) sexDisaggregate:To Obtain and Analyze Sex-disaggregated Datasets,
+Unpublished. URL https://github.com/lifangy6/sexDisaggregate"
+
+R box plot. DataMentor. (n.d.). https://www.datamentor.io/r-programming/box-plot
 }
 \author{
 {Krutika Joshi, \email{krutikadilip.joshi@mail.utoronto.ca}}

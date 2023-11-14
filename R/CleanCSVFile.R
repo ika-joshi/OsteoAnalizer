@@ -40,9 +40,16 @@
 #' @author {Krutika Joshi, \email{krutikadilip.joshi@mail.utoronto.ca}}
 #'
 #' @references
-#' R Core Team (2022). R: A language and environment for statistical
-#'   computing. R Foundation for Statistical Computing, Vienna, Austria.
-#'   URL https://www.R-project.org/.
+#' Chatgpt. ChatGPT. (n.d.). https://openai.com/chatgpt
+#'
+#' Bates, C. (2023, April 9). Tutorial: Loading and cleaning data with R and
+#' the Tidyverse. Dataquest.
+#' https://www.dataquest.io/blog/load-clean-data-r-tidyverse/
+#'
+#' Li, F. (2022) sexDisaggregate:To Obtain and Analyze Sex-disaggregated Datasets,
+#' Unpublished. URL https://github.com/lifangy6/sexDisaggregate"
+#'
+#'
 #' @importFrom stats na.omit
 #' @importFrom utils read.csv
 #' @export

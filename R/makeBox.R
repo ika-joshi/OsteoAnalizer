@@ -38,9 +38,15 @@
 #' @author {Krutika Joshi, \email{krutikadilip.joshi@mail.utoronto.ca}}
 #'
 #' @references
-#' R Core Team (2022). R: A language and environment for statistical
-#'   computing. R Foundation for Statistical Computing, Vienna, Austria.
-#'   URL https://www.R-project.org/.
+#' Chatgpt. ChatGPT. (n.d.). https://openai.com/chatgpt
+#'
+#' Holtz, Y. (n.d.). Control Ggplot2 Boxplot colors. – the R Graph Gallery.
+#' https://r-graph-gallery.com/264-control-ggplot2-boxplot-colors.html
+#'
+#' Li, F. (2022) sexDisaggregate:To Obtain and Analyze Sex-disaggregated Datasets,
+#' Unpublished. URL https://github.com/lifangy6/sexDisaggregate"
+#'
+#' R box plot. DataMentor. (n.d.). https://www.datamentor.io/r-programming/box-plot
 #'
 #' @export
 #'
@@ -83,7 +89,7 @@ makeBox <- function(dataMade, fluidLevels, cartThick, sevLevels, age) {
          x = "Severity Levels",
          y = "Fluid Levels") +
     scale_fill_manual(values = custom_colors) +
-    guides(fill = FALSE)
+    guides(fill = "none")
 
   # Second box plot with severity level and Cartilage Thickness
   box_thick <- ggplot(dataMade, aes(x = as.factor(severity_levels), y = cartilage_thickness, fill = as.factor(severity_levels))) +
@@ -92,7 +98,7 @@ makeBox <- function(dataMade, fluidLevels, cartThick, sevLevels, age) {
          x = "Severity Levels",
          y = "Cartilage Thickness") +
     scale_fill_manual(values = custom_colors) +
-    guides(fill = FALSE)
+    guides(fill = "none")
 
   # Third box plot with severity level and Cartilage Thickness
   box_age <- ggplot(dataMade, aes(x = as.factor(severity_levels), y = patient_age, fill = as.factor(severity_levels))) +
@@ -101,7 +107,7 @@ makeBox <- function(dataMade, fluidLevels, cartThick, sevLevels, age) {
          x = "Severity Levels",
          y = "Age") +
     scale_fill_manual(values = custom_colors) +
-    guides(fill = FALSE)
+    guides(fill = "none")
 
   # Combine plots
   final_plots <- cowplot::plot_grid(box_sev, box_thick, box_age, labels = c("A", "B", "C"))

@@ -39,9 +39,17 @@
 #' @author {Krutika Joshi, \email{krutikadilip.joshi@mail.utoronto.ca}}
 #'
 #' @references
-#' R Core Team (2022). R: A language and environment for statistical
-#'   computing. R Foundation for Statistical Computing, Vienna, Austria.
-#'   URL https://www.R-project.org/.
+#' Chatgpt. ChatGPT. (n.d.). https://openai.com/chatgpt
+#'
+#' GeeksforGeeks. (2022, December 26). How to color scatter plot points in
+#' R ?. GeeksforGeeks.
+#' https://www.geeksforgeeks.org/how-to-color-scatter-plot-points-in-r/
+#'
+#' Li, F. (2022) sexDisaggregate:To Obtain and Analyze Sex-disaggregated Datasets,
+#' Unpublished. URL https://github.com/lifangy6/sexDisaggregate"
+#'
+#' Scatter plot in R programming 🟢 [with examples].
+#' R CODER. (2021, June 18). https://r-coder.com/scatter-plot-r/
 #'
 #' @export
 #'
@@ -55,7 +63,7 @@ makeScatter <- function(dataMade, varOne, varTwo, reg = TRUE){
       is.character(varTwo) &
       is.logical(reg)) {
   } else {
-    stop("Make sure the first three parameters are character and the
+    stop("Make sure the second and third parameters are character and the
          last is a boolean")
   }
 
