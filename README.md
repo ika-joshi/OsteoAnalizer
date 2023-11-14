@@ -132,7 +132,7 @@ contributions. To submit an issue, use the GitHub issues.
 ## Tree Structure
 
 ``` r
-- sexDisaggregate
+- OsteoAnalizer
   |- .gitignore
   |- .Rbuildignore
   |- .RData
