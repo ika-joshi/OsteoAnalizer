@@ -22,7 +22,7 @@ severity levels in data set provided.}
 individuals in data set provided.}
 }
 \value{
-Returns a data frame with four columns:
+Returns a list with four columns:
    (1) fluid levels
    (2) cartilage thickness
    (3) severity levels
@@ -43,10 +43,10 @@ exampleDataPath <- system.file("extdata",
                                package = "OsteoAnalizer")
 
 dataList <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
-                               fluidLevels = "Fluid Levels",
-                               cartThick = "Cartilage Thickness",
-                               sevLevels = "Severity Levels",
-                               age = "Age")
+                               fluidLevels = "fluid_levels",
+                               cartThick = "cartilage_thickness",
+                               sevLevels = "severity_levels",
+                               age = "age")
 
 }
 

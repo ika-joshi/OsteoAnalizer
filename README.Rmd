@@ -18,15 +18,38 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of OsteoAnalizer is to ...
+The goal of OsteoAnalizer is to clean CSV data sets containing information 
+related to Osteoarthritis. The package also aims to analyse 
+the relation between the 4 key aspects of Osteoarthritis(i.e fluid levels, 
+cartilage thickness, severity levels, and patient age) by output visual elements. 
+
+R Version: R version 4.3.1 (2023-06-16)
+Platform: x86_64-apple-darwin20 
+
 
 ## Installation
 
 You can install the development version of OsteoAnalizer like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+require("devtools")
+devtools::install_github("ika-joshi/OsteoAnalizer", build_vignettes = TRUE)
+library("OsteoAnalizer")
 ```
+
+## Overview
+
+Here is a overview of OsteoAnalizer
+
+``` r
+ls("package:OsteoAnalizer")
+data(package = "OsteoAnalizer") # optional
+browseVignettes("OsteoAnalizer")
+```
+
+
+
+
 
 ## Example
 
@@ -37,18 +60,8 @@ library(OsteoAnalizer)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
-```{r cars}
-summary(cars)
-```
 
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
 
-You can also embed plots, for example:
 
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
