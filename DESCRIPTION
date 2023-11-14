@@ -19,4 +19,5 @@ Suggests:
 Config/testthat/edition: 3
 Imports:
   cowplot,
-  ggplot2
+  ggplot2,
+  ggpmisc

@@ -5,10 +5,21 @@
 \title{Visualizing severity level against the fluid levels, cartilage thickness
 or patient age.}
 \usage{
-makeBox(dataMade)
+makeBox(dataMade, fluidLevels, cartThick, sevLevels, age)
 }
 \arguments{
 \item{dataMade}{A list created by separateCSV.}
+
+\item{fluidLevels}{A character variable that represents the fluid levels in
+the data set}
+
+\item{cartThick}{A character variable that represents the cartlidge thickness
+in the data set}
+
+\item{sevLevels}{A character variable that represents the severity level in
+the data set}
+
+\item{age}{A character variable that represents the age in the data set}
 }
 \value{
 Returns a 3 box plots showcasing the distribution of fluid levels,

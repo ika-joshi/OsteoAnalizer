@@ -2,7 +2,11 @@
 
 export(CleanCSVFile)
 export(makeBox)
+export(makeScatter)
 import(cowplot)
 import(ggplot2)
+import(ggpmisc)
+importFrom(stats,coef)
+importFrom(stats,lm)
 importFrom(stats,na.omit)
 importFrom(utils,read.csv)

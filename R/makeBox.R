@@ -9,6 +9,13 @@
 #' variable across the severity levels.
 #'
 #' @param dataMade A list created by separateCSV.
+#' @param fluidLevels A character variable that represents the fluid levels in
+#'                    the data set
+#' @param cartThick A character variable that represents the cartlidge thickness
+#'                  in the data set
+#' @param sevLevels A character variable that represents the severity level in
+#'                  the data set
+#' @param age A character variable that represents the age in the data set
 #'
 #' @return Returns a 3 box plots showcasing the distribution of fluid levels,
 #' cartilage thickness and patient age
@@ -41,23 +48,42 @@
 #' @import cowplot
 #'
 
-makeBox <- function(dataMade) {
+makeBox <- function(dataMade, fluidLevels, cartThick, sevLevels, age) {
   # Input checks
   if (! is.list(dataMade)) {
     stop("Please make sure to use the CleanCSVFile function to clean the data
          before using this function")
+  }
+  # Error checks
+  if (is.character(fluidLevels) &
+      is.character(cartThick)&
+      is.character(sevLevels)&
+      is.character(age)){
+  } else {
+    stop("Make sure the parameters are character variables")
+  }
+  if (!(fluidLevels %in% names(dataMade) && cartThick %in% names(dataMade)
+        && sevLevels %in% names(dataMade) && age %in% names(dataMade))){
+    stop("Please make sure the variable name are matching with the dataset
+    provided")
   }
 
   # Custom color palette
   custom_colors <- c("#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3")
 
   # First box plot with severity level and fluid levels
+  severity_levels <- dataMade[, sevLevels]
+  fluid_levels <-  dataMade[, fluidLevels]
+  cartilage_thickness <- dataMade[, cartThick]
+  patient_age <- dataMade[, age]
+
   box_sev <- ggplot(dataMade, aes(x = as.factor(severity_levels), y = fluid_levels, fill = as.factor(severity_levels))) +
     geom_boxplot(alpha = 0.7, outlier.shape = NA) +
     labs(title = "Box Plot of Fluid Levels by Severity Levels",
          x = "Severity Levels",
          y = "Fluid Levels") +
-    scale_fill_manual(values = custom_colors)
+    scale_fill_manual(values = custom_colors) +
+    guides(fill = FALSE)
 
   # Second box plot with severity level and Cartilage Thickness
   box_thick <- ggplot(dataMade, aes(x = as.factor(severity_levels), y = cartilage_thickness, fill = as.factor(severity_levels))) +
@@ -65,7 +91,8 @@ makeBox <- function(dataMade) {
     labs(title = "Box Plot of Cartilage Thickness by Severity Levels",
          x = "Severity Levels",
          y = "Cartilage Thickness") +
-    scale_fill_manual(values = custom_colors)
+    scale_fill_manual(values = custom_colors) +
+    guides(fill = FALSE)
 
   # Third box plot with severity level and Cartilage Thickness
   box_age <- ggplot(dataMade, aes(x = as.factor(severity_levels), y = patient_age, fill = as.factor(severity_levels))) +
@@ -73,7 +100,8 @@ makeBox <- function(dataMade) {
     labs(title = "Box Plot of Age by Severity Levels",
          x = "Severity Levels",
          y = "Age") +
-    scale_fill_manual(values = custom_colors)
+    scale_fill_manual(values = custom_colors) +
+    guides(fill = FALSE)
 
   # Combine plots
   final_plots <- cowplot::plot_grid(box_sev, box_thick, box_age, labels = c("A", "B", "C"))
