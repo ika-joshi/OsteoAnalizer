@@ -57,7 +57,7 @@ analysis on the two chosen variables.
 
 ## Contributions
 
-The package was developed by Krutika Joshi.The author coded the all the functions independently with the aid of the resources listed below:
+The package was developed by Krutika Joshi. The author coded the all the functions independently with the aid of the resources listed below:
 
 Function `CleanCSVFile`:
 * Package `na.omit` is used to clean data sets in `CleanCSVFile`. 
@@ -67,23 +67,22 @@ Function `CleanCSVFile`:
 
 Function `makeBox`:
 * Package `ggplot2` is used to create box plots.
-in function `makeBox` and `makeScatter`. 
-* `GeeksforGeeks` and `Holtz` was used to understand to color templates in the plots.
-* Package `sexDisaggregate` is used to understand the error checking for input
-* Package `cowplot` is used to combine box plots plots.
+* `GeeksforGeeks` and `Holtz` was used to understand to color templates in the `ggplot2` plots.
+* Package `sexDisaggregate` is used to understand the error checking for inputs.
+* Package `cowplot` is used to combine box plots.
 * `ChatGPT`, `Claus` and `Wickham` were used to understand the syntax of `cowplot` and `ggplot2`.
-* Author combined the concepts listed above to code a box plot with different stylistic elements and labels
+* Author combined the concepts listed above to code a box plot with different stylistic elements and labels.
 
 Function `makeScatter`:
 * Package `ggplot2` is used to create scatter plots.
 * Package `ggpmisc` is used to show the line of regression in `makeScatter`.
 * Package `coef` is used to compute the line of regression. 
-* Package `sexDisaggregate` is used to understand the error checking for input
+* Package `sexDisaggregate` is used to understand the error checking for input.
 * Package `lm` is used to compute the line of regression.
-* `R CODER` was used to understand the conceptual computations to create a scatter plot.
-* `Wickham` was used to understand the syntax of the functions present in `ggplot2`
+* `R CODER` was used to understand the conceptual computations involved to create a scatter plot.
+* `Wickham` was used to understand the syntax of the functions present in `ggplot2`. 
 * `ChatGPT` was used to understand the syntax of the functions present in `ggpmisc`, `coef` and `ggplot2`.
-* Author combined the concepts listed above to code a scatter plot with different stylistic elements and labels
+* Author combined the concepts listed above to code a scatter plot with different stylistic elements and labels with the line of regression. 
 
 ## References
 
