@@ -51,6 +51,10 @@
 #' Scatter plot in R programming 🟢 [with examples].
 #' R CODER. (2021, June 18). https://r-coder.com/scatter-plot-r/
 #'
+#' Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis.
+# Springer-Verlag New York. ISBN 978-3-319-24277-4,
+# <https://ggplot2.tidyverse.org>.
+#'
 #' @export
 #'
 #' @importFrom stats coef lm

@@ -48,6 +48,10 @@
 #'
 #' R box plot. DataMentor. (n.d.). https://www.datamentor.io/r-programming/box-plot
 #'
+#' Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis.
+# Springer-Verlag New York. ISBN 978-3-319-24277-4,
+# <https://ggplot2.tidyverse.org>.
+#'
 #' @export
 #'
 #' @import ggplot2

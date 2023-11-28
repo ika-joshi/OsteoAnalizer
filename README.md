@@ -12,7 +12,7 @@ related to Osteoarthritis. The package also aims to analyse
 the relation between the 4 key aspects of Osteoarthritis(i.e fluid levels, 
 cartilage thickness, severity levels, and patient age) by outputing visual elements. 
 
-This package aims to improve current osteoarthritis related workflows by concentrating the analysis on the four key variables(fluid levels, cartilage thickness, severity levels, and patient age). To better understand the complexities of OA, the package uses advanced visualization options, such as box plots and scatter plots, which enable comparative analyses across all four variables, a capability not available in other packages. Furthermore, this package has a key feature not found in other bioinformatics packages, which is the ability to analyze OA data without the use of images. As opposed to previous packages that analyzed image-based data in order to calculate the severity of osteoarthritis, OsteoAnalizer utilizes a CSV format data sets for analysis. 
+This package aims to improve current osteoarthritis related workflows by concentrating the analysis on the four key variables(fluid levels, cartilage thickness, severity levels, and patient age). To better understand the complexities of osteoarthritis, the package uses advanced visualization options, such as box plots and scatter plots, which enable comparative analyses across all four variables, a capability not available in other packages. Furthermore, this package has a key feature not found in other bioinformatics packages, which is the ability to analyze OA data without the use of images. As opposed to previous packages that analyzed image-based data in order to calculate the severity of osteoarthritis, OsteoAnalizer utilizes a CSV format data sets for analysis. 
 
 R Version: R version 4.3.1 (2023-06-16) Platform: x86_64-apple-darwin20
 
@@ -57,26 +57,33 @@ analysis on the two chosen variables.
 
 ## Contributions
 
-The package was developed by Krutika Joshi.
+The package was developed by Krutika Joshi.The author coded the all the functions independently with the aid of the resources listed below:
 
-- Package `na.omit` is used to clean datasets in `CleanCSVFile`.
+Function `CleanCSVFile`:
+* Package `na.omit` is used to clean data sets in `CleanCSVFile`. 
+* Package `read.csv` is used to read the CSV file in `CleanCSVFile`.
+* Package `sexDisaggregate` and `Bates` are used to understand the error checking for CSV files.
+* Author coded the cleaning of the data and outputting result.
 
-- Package `read.csv` is used to read the CSV file in `CleanCSVFile`.
+Function `makeBox`:
+* Package `ggplot2` is used to create box plots.
+in function `makeBox` and `makeScatter`. 
+* `GeeksforGeeks` and `Holtz` was used to understand to color templates in the plots.
+* Package `sexDisaggregate` is used to understand the error checking for input
+* Package `cowplot` is used to combine box plots plots.
+* `ChatGPT`, `Claus` and `Wickham` were used to understand the syntax of `cowplot` and `ggplot2`.
+* Author combined the concepts listed above to code a box plot with different stylistic elements and labels
 
-- Package `ggplot2` is used to create box plots and scatter plots
-  respectively in function `makeBox` and `makeScatter`.
-
-- Package `cowplot` is used to combine boxplots plots in function
-  `makeBox`.
-
-- Package `ggpmisc` is used to show the line of regression in
-  `makeScatter`.
-
-- Package `coef` is used to compute the line of regression in
-  `makeScatter`.
-
-- Package `lm` is used to compute the line of regression in
-  `makeScatter`.
+Function `makeScatter`:
+* Package `ggplot2` is used to create scatter plots.
+* Package `ggpmisc` is used to show the line of regression in `makeScatter`.
+* Package `coef` is used to compute the line of regression. 
+* Package `sexDisaggregate` is used to understand the error checking for input
+* Package `lm` is used to compute the line of regression.
+* `R CODER` was used to understand the conceptual computations to create a scatter plot.
+* `Wickham` was used to understand the syntax of the functions present in `ggplot2`
+* `ChatGPT` was used to understand the syntax of the functions present in `ggpmisc`, `coef` and `ggplot2`.
+* Author combined the concepts listed above to code a scatter plot with different stylistic elements and labels
 
 ## References
 
