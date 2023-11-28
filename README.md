@@ -6,23 +6,15 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of OsteoAnalizer is to clean CSV data sets containing
-information related to Osteoarthritis. The package also aims to analyse
-the relation between the 4 key aspects of Osteoarthritis(i.e fluid
-levels, cartilage thickness, severity levels, and patient age) by output
-visual elements.
+## Description
+The goal of OsteoAnalizer is to clean CSV data sets containing information 
+related to Osteoarthritis. The package also aims to analyse 
+the relation between the 4 key aspects of Osteoarthritis(i.e fluid levels, 
+cartilage thickness, severity levels, and patient age) by outputing visual elements. 
+
+This package aims to improve current osteoarthritis related workflows by concentrating the analysis on the four key variables(fluid levels, cartilage thickness, severity levels, and patient age). To better understand the complexities of OA, the package uses advanced visualization options, such as box plots and scatter plots, which enable comparative analyses across all four variables, a capability not available in other packages. Furthermore, this package has a key feature not found in other bioinformatics packages, which is the ability to analyze OA data without the use of images. As opposed to previous packages that analyzed image-based data in order to calculate the severity of osteoarthritis, OsteoAnalizer utilizes a CSV format data sets for analysis. 
 
 R Version: R version 4.3.1 (2023-06-16) Platform: x86_64-apple-darwin20
-
-## Installation
-
-You can install the development version of OsteoAnalizer like so:
-
-``` r
-require("devtools")
-devtools::install_github("ika-joshi/OsteoAnalizer", build_vignettes = TRUE)
-library("OsteoAnalizer")
-```
 
 ## Installation
 
