@@ -27,12 +27,15 @@
 #'                                "example_data.csv",
 #'                                package = "OsteoAnalizer")
 #'
-#' dataMade <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
+#' dataList <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
 #'                                fluidLevels = "fluid_levels",
 #'                                cartThick = "cartilage_thickness",
 #'                                sevLevels = "severity_levels",
-#'                                age = "age")
-#' OsteoAnalizer::makeBox(dataMade)
+#'                                age = "patient_age")
+#' OsteoAnalizer::makeBox(dataList, fluidLevels = "fluid_levels",
+#'                                cartThick = "cartilage_thickness",
+#'                                sevLevels = "severity_levels",
+#'                                age = "patient_age")
 #' }
 #'
 #' @author {Krutika Joshi, \email{krutikadilip.joshi@mail.utoronto.ca}}

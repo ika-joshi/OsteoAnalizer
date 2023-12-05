@@ -26,13 +26,14 @@
 #'                                "example_data.csv",
 #'                                package = "OsteoAnalizer")
 #'
-#' dataMade <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
+#' dataList <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
 #'                                fluidLevels = "fluid_levels",
 #'                                cartThick = "cartilage_thickness",
 #'                                sevLevels = "severity_levels",
-#'                                age = "age")
+#'                                age = "patient_age")
 #'
-#' OsteoAnalizer::makeScatter(dataMade)
+#' OsteoAnalizer::makeScatter(dataList, varOne = "fluid_levels",
+#'                                varTwo = "cartilage_thickness")
 #'
 #' }
 #'
