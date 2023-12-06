@@ -27,7 +27,7 @@ he function __*makeScatter*__ visualizes the relation between any two of the fou
 **This document provides a overview of OsteoAnalizer's functionalities**
 It was written in R Markdown, using the [knitr](https://cran.r-project.org/package=knitr) package for production. 
 
-See `help(package = "OsteoAnalizer")` for further details and references provided by `citation("OsteoAnalizer")`. 
+See reference provided by `citation("OsteoAnalizer")`. 
 
 <br>
 ## Quick Tutorial
