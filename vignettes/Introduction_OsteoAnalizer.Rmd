@@ -21,86 +21,127 @@ library(OsteoAnalizer)
 ```
 
 ## Introduction
-**OsteoAnalizer** is a R package with the aim to clean CSV data sets containing information 
-related to Osteoarthritis. The function __*cleanCSVFile*__ cleans and organizes 
-a CSV file into 4 columns: fluid levels, cartilage thickness, patient age and severity levels. The function __*makeBox*__ visualizes the fluid levels, cartilage thickness and patient age against severity levels using 3 box plots. The function __*makeScatter*__ visualizes the relation between any two variables from fluid levels, cartilage thickness and patient age by using scatter plots. 
+**OsteoAnalizer** is a R package that aims to clean and analyze CSV files that contain data related to osteoarthritis. The function __*cleanCSVFile*__ cleans and organizes a CSV file into 4 key variables: fluid levels, cartilage thickness, patient age and severity levels. The function __*makeBox*__ provides a box plot visual to aid in osteoarthritis analysis. 
+he function __*makeScatter*__ visualizes the relation between any two of the four key variables by using scatter plots. 
 
-
-**This document gives an overview of the functionalities associated with OsteoAnalizer **. It was written in R Markdown, using the [knitr](https://cran.r-project.org/package=knitr) package for production. 
+**This document provides a overview of OsteoAnalizer's functionalities**
+It was written in R Markdown, using the [knitr](https://cran.r-project.org/package=knitr) package for production. 
 
 See `help(package = "OsteoAnalizer")` for further details and references provided by `citation("OsteoAnalizer")`. 
 
+<br>
+## Quick Tutorial
+This tutorial will walk through downloading and using **OsteoAnalizer**
+
+### Step 1
 To download **OsteoAnalizer**, use the following commands:
-``` r
+```{r}
 require("devtools")
 devtools::install_github("ika-joshi/OsteoAnalizer", build_vignettes = TRUE)
 library("OsteoAnalizer")
 ```
 
-To list all functions available in the package:
-``` r
-lsf.str("package:OsteoAnalizer")
+### Step 2
+To examine all functions available in the package type the following in the command:
+```{r}
+ls("package:OsteoAnalizer")
 ```
 
-To list all sample data available in the package:
-``` r
+To list all sample data available in OsteoAnalizer type the following in the command line:
+```{r}
 data(package = "OsteoAnalizer")
 ```
+The output should open a new file called "R data sets" and contain the following information:
+```
+#Data sets in package ‘OsteoAnalizer’:
 
-<br>
-
-## Quick Tutorial
-Use provided mock CSV data to have a quick understanding of the functionalities of this package.
-
-### Step 1. Clean ghe data set
-To use the example CSV data:
-``` r
-# extdata is the folder where the mock data set is present 
-# example_data.csv is the name of the data set
-testData <- system.file("extdata", "example_data.csv", package = "OsteoAnalizer")
+OA_data                             
 ```
 
-To clean the mock CSV dataset:
-``` r
+### Step 3
+This step aims to demonstrates the use of **OsteoAnalizer** to clean a built in mock
+data set call **example_data**. This data set is a CSV file which contains data related to
+individuals that have osteoarthritis. Specifically, it contains fluid levels,
+cartilage thickness, severity levels and the patient_age which are the common 
+critical aspects of osteoarthritis research. The data set is raw thus it
+contains values such as NA which the **CleanCSVFile** function will clean. 
+
+Type the following to use the **CleanCSVFile** function with the mock data 
+set(i.e **example_data**). 
+```{r}
+# extdata is the folder where example_data is present 
+# example_data.csv is the name of the mock data set
+# testData stores the path to the example_data.csv file
+testData <- system.file("extdata", "example_data.csv", package = "OsteoAnalizer")
+# Call the CleanCSVFile function
 result <- CleanCSVFile(testData, "fluid_levels","cartilage_thickness","severity_levels","patient_age")
 ```
 
-To view the cleaned data set:
-``` r
-result        # Should contain no NA and should have 4 columns that represent the four variables
+To view a snipet of the cleaned data set type the following in the command line argument:
+```{r}
+# Should contain no NA and should have 4 columns that represent the four variables
+result        
 ```
 
-### Step 2: Bar plot approach
-To view distribution of fluid levels, cartilage thickness and patient age against severity levels: 
-``` r
+The console should output
+```
+fluid_levels cartilage_thickness severity_levels patient_age
+1          5.0                 3.0               1           1
+2          4.8                 2.9               1           2
+4          4.7                 3.0               1           4
+5          4.5                 3.5               1           6
+6          4.6                 3.0               1           8
+7          4.5                 3.5               2          10
+```
+Note the output displays the top rows of the cleaned dataset, showing no missing
+values (NAs) and the four specified variables(i.e fluid_levels, 
+cartilage_thickness, severity_levels, patient_age).
+
+
+### Step 4:
+In this step, we will use the cleaned data set and create a bar plot visual. 
+To create and view the box plot type the following:
+```{r}
+# To create the box plots
 box_created <- makeBox(result, "fluid_levels","cartilage_thickness","severity_levels","patient_age")
+# To view the box plots
+box_created
 ```
-To view the box plots:
-``` r
-box_created       # Should contain 3 box plots: severity levels vs 3 variables
-```
+The box plots compare the distribution of fluid levels, cartilage thickness, and
+patient age across different severity levels. This visualization helps in 
+identifying patterns and outliers in the data.
 
-### Step 3.1: Scatter plot approach with line of regression
-To view the relation between any two variables from fluid levels, cartilage thickness and patient age
-``` r
+### Step 5a: 
+This function will focus on creating a scatter plot to examine the relationship 
+between fluid levels, cartilage thickness and patient age. As an example we will 
+create a scatter plot to examine the relationship between fluid levels and 
+cartilage thickness. 
+```{r}
+# To create the scatter plot with a line of regression
 scatter_created <- makeScatter(result, "fluid_levels","cartilage_thickness")
+# To view the scatter plot with a line of regression
+scatter_created 
 ```
-To view the scatter plots:
-``` r
-scatter_created     # Should contain a scatter plot with the two variables mentioned 
-```
+The scatter plot illustrates the relationship between fluid levels and cartilage
+thickness, with a regression line(in red) indicating the direction of the trend. 
+In this way, correlations between these variables can be revealed.
 
-### Step 3.2: Scatter plot approach without line of regerssion
-To view the relation between any two variables from fluid levels, cartilage thickness and patient age against without the line of regression present
-``` r
-scatter_created <- makeScatter(result, "fluid_levels","cartilage_thickness", FALSE)
+
+### Step 5b: 
+We can also visualize the data without the regression line on the mock data set. 
+We will use the same variables mentioned above(i.e fluid levels and cartilage
+thickness). 
+```{r}
+# To create the scatter plot without a line of regression
+scatter_created_no_reg <- makeScatter(result, "fluid_levels", "cartilage_thickness", FALSE)
+# To view the scatter plot without a line of regression
+scatter_created_no_reg
 ```
-To view the scatter plots:
-``` r
-scatter_created     # Should contain a scatter plot with the two variables mentioned and no line of regression 
-```
+This scatter plot is similar to the previous scatter plot, but without the 
+regression line. This allows a direct assessment of the distribution of the 
+data points.
+
 <br>
-
 ## Package References
 Joshi, K. (2023) OsteoAnalizer:Analyze data sets related to Osteoarthritis, Unpublished. URL https://github.com/ika-joshi/OsteoAnalizer
 
