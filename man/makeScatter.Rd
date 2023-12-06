@@ -38,13 +38,14 @@ exampleDataPath <- system.file("extdata",
                                "example_data.csv",
                                package = "OsteoAnalizer")
 
-dataMade <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
+dataList <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
                                fluidLevels = "fluid_levels",
                                cartThick = "cartilage_thickness",
                                sevLevels = "severity_levels",
-                               age = "age")
+                               age = "patient_age")
 
-OsteoAnalizer::makeScatter(dataMade)
+OsteoAnalizer::makeScatter(dataList, varOne = "fluid_levels",
+                               varTwo = "cartilage_thickness")
 
 }
 
@@ -61,6 +62,8 @@ Unpublished. URL https://github.com/lifangy6/sexDisaggregate"
 
 Scatter plot in R programming 🟢 [with examples].
 R CODER. (2021, June 18). https://r-coder.com/scatter-plot-r/
+
+Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis.
 }
 \author{
 {Krutika Joshi, \email{krutikadilip.joshi@mail.utoronto.ca}}

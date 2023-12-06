@@ -46,7 +46,7 @@ dataList <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
                                fluidLevels = "fluid_levels",
                                cartThick = "cartilage_thickness",
                                sevLevels = "severity_levels",
-                               age = "age")
+                               age = "patient_age")
 
 }
 

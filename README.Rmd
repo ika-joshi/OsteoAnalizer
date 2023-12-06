@@ -128,6 +128,9 @@ Computing*. R Foundation for Statistical Computing, Vienna, Austria.
 Scatter plot in R programming 🟢 \[with examples\]. R CODER. (2021, June
 18). <https://r-coder.com/scatter-plot-r/>
 
+U.S. Department of Health and Human Services. (2017). Study of osteoporotic fractures. 
+National Institute on Aging. https://agingresearchbiobank.nia.nih.gov/studies/sof/?search_term=Osteoarthritis 
+
 Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis.
 Springer-Verlag New York. ISBN 978-3-319-24277-4,
 <https://ggplot2.tidyverse.org>.
@@ -148,7 +151,7 @@ contributions. To submit an issue, use the GitHub issues.
   |- .RData
   |- .Rhistory
   |- data
-    |- my_data.rda
+    |- OA_data.rda
   |- DESCRIPTION
   |- inst
     |- extdata
@@ -162,7 +165,7 @@ contributions. To submit an issue, use the GitHub issues.
       |- README-pressure-1.png
     |- makeBox.Rd
     |- makeScatter.Rd
-    |- my_data.Rd
+    |- OA_data.Rd
   |- NAMESPACE
   |- OsteoAnalizer.Rproj
   |- R

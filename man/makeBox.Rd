@@ -40,12 +40,15 @@ exampleDataPath <- system.file("extdata",
                                "example_data.csv",
                                package = "OsteoAnalizer")
 
-dataMade <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
+dataList <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
                                fluidLevels = "fluid_levels",
                                cartThick = "cartilage_thickness",
                                sevLevels = "severity_levels",
-                               age = "age")
-OsteoAnalizer::makeBox(dataMade)
+                               age = "patient_age")
+OsteoAnalizer::makeBox(dataList, fluidLevels = "fluid_levels",
+                               cartThick = "cartilage_thickness",
+                               sevLevels = "severity_levels",
+                               age = "patient_age")
 }
 
 }
@@ -59,6 +62,8 @@ Li, F. (2022) sexDisaggregate:To Obtain and Analyze Sex-disaggregated Datasets,
 Unpublished. URL https://github.com/lifangy6/sexDisaggregate"
 
 R box plot. DataMentor. (n.d.). https://www.datamentor.io/r-programming/box-plot
+
+Wickham H (2016). ggplot2: Elegant Graphics for Data Analysis.
 }
 \author{
 {Krutika Joshi, \email{krutikadilip.joshi@mail.utoronto.ca}}
