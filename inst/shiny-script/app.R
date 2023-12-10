@@ -60,6 +60,7 @@ ui <- fluidPage(
                 label = "Enter the exact representation of Patient_Age in the dataset (eg. patient_age, age, etc).", "patient_age"),
       selectInput("visMethod", "Choose a visualize method:",
                   choices = c("Scatter", "Bar")),
+      uiOutput("scatterPlotInputs"),
       # br() element to introduce extra vertical spacing ----
       br(),
 
@@ -96,17 +97,45 @@ server <- function(input, output) {
                                 age = input$patient_age)
   })
 
+  # Create a reactive UI element for selecting variables for the scatter plot
+  output$scatterPlotInputs <- renderUI({
+    if (input$visMethod == "Scatter") {
+      tagList(
+        selectInput("varOne", "Choose the first variable for scatter plot:",
+                    choices = c(fluidLevels = input$fluid_levels,
+                                cartilageThickness = input$cartilage_thickness,
+                                severityLevels = input$severity_levels,
+                                patientAge = input$patient_age)),
+        selectInput("varTwo", "Choose the second variable for scatter plot:",
+                    choices = c(fluidLevels = input$fluid_levels,
+                                cartilageThickness = input$cartilage_thickness,
+                                severityLevels = input$severity_levels,
+                                patientAge = input$patient_age)),
+        checkboxInput("regLine", "Include Regression Line?", TRUE)
+      )
+    }
+  })
+
   # Output plots
   observeEvent(input$button1, {
-    output$plots <- renderPlot({
-      if (! is.null(dataList())) {
-          OsteoAnalizer::makeBox(dataMade = dataList(),
-                                 fluidLevels = input$fluid_levels,
-                                 cartThick = input$cartilage_thickness,
-                                 sevLevels = input$severity_levels,
-                                 age = input$patient_age)
-      }
-    })
+    if (input$visMethod == "Scatter" && !is.null(dataList())){
+      output$plots <- renderPlot({
+        OsteoAnalizer::makeScatter(dataMade = dataList(),
+                                   varOne = input$varOne,
+                                   varTwo = input$varTwo,
+                                   reg = input$regLine)
+      })
+    }
+    else if(input$visMethod == "Bar" && !is.null(dataList())) {
+      output$plots <- renderPlot({
+        OsteoAnalizer::makeBox(dataMade = dataList(),
+                               fluidLevels = input$fluid_levels,
+                               cartThick = input$cartilage_thickness,
+                               sevLevels = input$severity_levels,
+                               age = input$patient_age)
+      })
+    }
+
   })
 
   # URLs for downloading data
