@@ -44,4 +44,29 @@ test_that("No extra data has been added", {
   # Check if any additional data was needed
   expect_true(org_data >= cleaned_data)
 })
+
+test_that("Column data types are maintained after cleaning", {
+  testData <- system.file("extdata", "example_data.csv", package = "OsteoAnalizer")
+
+  org_data <- read.csv(testData)
+  result <- CleanCSVFile(testData, "fluid_levels", "cartilage_thickness", "severity_levels", "patient_age")
+
+  expect_true(is.numeric(result$fluid_levels))
+  expect_true(is.numeric(result$cartilage_thickness))
+  expect_true(is.numeric(result$severity_levels))
+  expect_true(is.numeric(result$patient_age))
+})
+
+test_that("The column data only contain specified columns", {
+  testData <- system.file("extdata", "example_data.csv", package = "OsteoAnalizer")
+
+  result <- CleanCSVFile(testData, "fluid_levels", "cartilage_thickness", "severity_levels", "patient_age")
+
+  expected_columns <- c("fluid_levels", "cartilage_thickness", "severity_levels", "patient_age")
+  expect_true(all(names(result) %in% expected_columns))
+  expect_equal(length(names(result)), length(expected_columns))
+})
+
+
+
 # [END]
