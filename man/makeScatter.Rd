@@ -32,7 +32,6 @@ levels. This function will help understand the relation between the two
 chosen variables.
 }
 \examples{
-\dontrun{
 
 exampleDataPath <- system.file("extdata",
                                "example_data.csv",
@@ -47,7 +46,6 @@ dataList <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
 OsteoAnalizer::makeScatter(dataList, varOne = "fluid_levels",
                                varTwo = "cartilage_thickness")
 
-}
 
 }
 \references{

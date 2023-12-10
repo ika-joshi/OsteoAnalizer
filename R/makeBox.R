@@ -21,7 +21,6 @@
 #' cartilage thickness and patient age
 #'
 #' @examples
-#' \dontrun{
 #'
 #' exampleDataPath <- system.file("extdata",
 #'                                "example_data.csv",
@@ -36,7 +35,6 @@
 #'                                cartThick = "cartilage_thickness",
 #'                                sevLevels = "severity_levels",
 #'                                age = "patient_age")
-#' }
 #'
 #' @author {Krutika Joshi, \email{krutikadilip.joshi@mail.utoronto.ca}}
 #'

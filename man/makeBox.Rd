@@ -34,7 +34,6 @@ levels. The purpose of this function is to examine the distribution of the
 variable across the severity levels.
 }
 \examples{
-\dontrun{
 
 exampleDataPath <- system.file("extdata",
                                "example_data.csv",
@@ -49,7 +48,6 @@ OsteoAnalizer::makeBox(dataList, fluidLevels = "fluid_levels",
                                cartThick = "cartilage_thickness",
                                sevLevels = "severity_levels",
                                age = "patient_age")
-}
 
 }
 \references{

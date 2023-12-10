@@ -25,6 +25,10 @@ require("devtools")
 devtools::install_github("ika-joshi/OsteoAnalizer", build_vignettes = TRUE)
 library("OsteoAnalizer")
 ```
+To run the ShinyApp:
+``` r
+OsteoAnalizer::runOsteoAnalizer()
+```
 
 ## Overview
 

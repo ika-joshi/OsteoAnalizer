@@ -20,7 +20,6 @@
 #' @return Returns a scatter plot with the two variables inputted by the user
 
 #' @examples
-#' \dontrun{
 #'
 #' exampleDataPath <- system.file("extdata",
 #'                                "example_data.csv",
@@ -35,7 +34,6 @@
 #' OsteoAnalizer::makeScatter(dataList, varOne = "fluid_levels",
 #'                                varTwo = "cartilage_thickness")
 #'
-#' }
 #'
 #' @author {Krutika Joshi, \email{krutikadilip.joshi@mail.utoronto.ca}}
 #'

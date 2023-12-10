@@ -36,8 +36,6 @@ value of this function should be a data frame with rows representing the
 individuals and columns representing the four variables mentioned above.
 }
 \examples{
-\dontrun{
-
 exampleDataPath <- system.file("extdata",
                                "example_data.csv",
                                package = "OsteoAnalizer")
@@ -48,7 +46,7 @@ dataList <- OsteoAnalizer::CleanCSVFile(filepath = exampleDataPath,
                                sevLevels = "severity_levels",
                                age = "patient_age")
 
-}
+
 
 }
 \references{

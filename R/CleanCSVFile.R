@@ -23,8 +23,6 @@
 #'    (4) patient age
 #'
 #' @examples
-#' \dontrun{
-#'
 #' exampleDataPath <- system.file("extdata",
 #'                                "example_data.csv",
 #'                                package = "OsteoAnalizer")
@@ -35,7 +33,7 @@
 #'                                sevLevels = "severity_levels",
 #'                                age = "patient_age")
 #'
-#' }
+#'
 #'
 #' @author {Krutika Joshi, \email{krutikadilip.joshi@mail.utoronto.ca}}
 #'

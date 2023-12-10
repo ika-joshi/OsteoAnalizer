@@ -5,10 +5,18 @@
 \alias{OA_data}
 \title{Example dataset: Mock data set with Osteoarthritis Patient Information}
 \format{
-A data frame with 36 rows and 4 columns.
+A data frame with columns:
+\describe{
+ \item{fluid_levels}{The synovial fluid found in knee joints, this is measured in milliliters.}
+ \item{cartilage_thickness}{The cartilage found in the knee and is measured in millimeters.}
+ \item{severity_levels}{This variable represents the progression of osteoarthritis
+ in that individual and goes from a scale from 0 (least severe) to 4 (most severe)}
+ \item{patient_age}{depicts the age of the individual}
+}
 }
 \source{
-U.S. Department of Health and Human Services
+U.S. Department of Health and Human Services. (2017). Study of osteoporotic fractures.
+National Institute on Aging. https://agingresearchbiobank.nia.nih.gov/studies/sof/?search_term=Osteoarthritis
 }
 \usage{
 OA_data
@@ -16,14 +24,8 @@ OA_data
 \description{
 This dataset, `OA_data`, contains information about patients with Osteoarthritis.
 The variables present in this data set are the fluid_levels,
-cartilage_thickness, severity_levels and the patient_age. The fluid_levels represent
-the synovial fluid found in knee joints. This is measured in milliliters. The
-cartilage_thickness variable as described by the name is the thickness of the
-cartilage found in the knee and is measured in millimeters.
-The severity_levels goes from a scale from 0 (least severe) to 4
-(most severe). This variable represents the progression of osteoarthritis
-in that individual. And lastly, the patient_age variable depicts the age of
-the individual. This mock dataset is created to showcase the use of
+cartilage_thickness, severity_levels and the patient_age. This mock dataset
+is created to showcase the use of
 osteoarthritis data in conjunction to the analysis functions
 present in this project. The data was developed with reference to the data
 set collected from U.S. Department of Health and Human Services.
