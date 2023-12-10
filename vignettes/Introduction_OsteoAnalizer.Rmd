@@ -1,10 +1,8 @@
 ---
-title: "Introduction_OstoAnalizer"
-author: "Krutika Joshi"
-date: "`r format(Sys.time(), '%d %b %Y')`"
+title: "Introduction_OsteoAnalizer"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction_OstoAnalizer}
+  %\VignetteIndexEntry{Introduction_OsteoAnalizer}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,13 +14,24 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(OsteoAnalizer)
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(fig.align = "center", 
+               out.width = "90%",
+               fig.width = 6, fig.height = 5.5,
+               dev.args=list(pointsize=10),
+               par = TRUE, # needed for setting hook 
+               collapse = TRUE, # collapse input & ouput code in chunks
+               warning = FALSE)
+knit_hooks$set(par = function(before, options, envir)
+  { if(before && options$fig.show != "none") 
+       par(family = "sans", mar=c(4.1,4.1,1.1,1.1), mgp=c(3,1,0), tcl=-0.5)
+})
+set.seed(1) # for exact reproducibility
 ```
 
 ## Introduction
-**OsteoAnalizer** is a R package that aims to clean and analyze CSV files that contain data related to osteoarthritis. The function __*cleanCSVFile*__ cleans and organizes a CSV file into 4 key variables: fluid levels, cartilage thickness, patient age and severity levels. The function __*makeBox*__ provides a box plot visual to aid in osteoarthritis analysis. 
-he function __*makeScatter*__ visualizes the relation between any two of the four key variables by using scatter plots. 
+**OsteoAnalizer** is an R package designed for the analysis of osteoarthritis data. Specifically, it aims to clean and analyze CSV files that contain data related to osteoarthritis. The diagnosis of osteoarthritis(i.e a common joint disorder) often involves evaluation of a number of parameters such as fluid levels, cartilage thickness, patient's age and severity level. It is helpful to analyze these parameters in order to gain a better understanding of the progression and impact of osteoarthritis. The function __*cleanCSVFile*__ cleans and organizes a CSV file into 4 key variables: fluid levels, cartilage thickness, patient age and severity levels. The function __*makeBox*__ provides a box plot visual to aid in osteoarthritis analysis. The function __*makeScatter*__ visualizes the relation between any two of the four key variables by using scatter plots. 
 
 **This document provides a overview of OsteoAnalizer's functionalities**
 It was written in R Markdown, using the [knitr](https://cran.r-project.org/package=knitr) package for production. 
@@ -30,11 +39,13 @@ It was written in R Markdown, using the [knitr](https://cran.r-project.org/packa
 See reference provided by `citation("OsteoAnalizer")`. 
 
 <br>
-## Quick Tutorial
+
+
+### Quick Tutorial
 This tutorial will walk through downloading and using **OsteoAnalizer**
 
 ### Step 1
-To download **OsteoAnalizer**, use the following commands:
+To download **OsteoAnalizer**, use the following commands. It uses devtools for installation, which ensures that you have the latest version directly from the GitHub repository.
 ```{r}
 require("devtools")
 devtools::install_github("ika-joshi/OsteoAnalizer", build_vignettes = TRUE)
@@ -42,12 +53,12 @@ library("OsteoAnalizer")
 ```
 
 ### Step 2
-To examine all functions available in the package type the following in the command:
+To examine all functions available in the package type the following in the command. A list of all the functions available in OsteoAnalizer is displayed in the output, each of which is designed to analyze specific aspects of osteoarthritis data.
 ```{r}
 ls("package:OsteoAnalizer")
 ```
 
-To list all sample data available in OsteoAnalizer type the following in the command line:
+To list all the sample data available in OsteoAnalizer type the following in the command line. **OA_data** is the sample dataset included which provides a realistic representation of clinical data used in osteoarthritis research. The data set has 4 columns with each representing a variable(i.e fluid levels, cartilage thickness, patient's age and severity level). The rows represent the individuals that were tested for the data. 
 ```{r}
 data(package = "OsteoAnalizer")
 ```
@@ -66,7 +77,7 @@ cartilage thickness, severity levels and the patient_age which are the common
 critical aspects of osteoarthritis research. The data set is raw thus it
 contains values such as NA which the **CleanCSVFile** function will clean. 
 
-Type the following to use the **CleanCSVFile** function with the mock data 
+Type the following to use the **CleanCSVFile** function with the mock CSV data 
 set(i.e **example_data**). 
 ```{r}
 # extdata is the folder where example_data is present 
@@ -82,20 +93,11 @@ To view a snipet of the cleaned data set type the following in the command line 
 # Should contain no NA and should have 4 columns that represent the four variables
 result        
 ```
-
-The console should output
-```
-fluid_levels cartilage_thickness severity_levels patient_age
-1          5.0                 3.0               1           1
-2          4.8                 2.9               1           2
-4          4.7                 3.0               1           4
-5          4.5                 3.5               1           6
-6          4.6                 3.0               1           8
-7          4.5                 3.5               2          10
-```
 Note the output displays the top rows of the cleaned dataset, showing no missing
 values (NAs) and the four specified variables(i.e fluid_levels, 
-cartilage_thickness, severity_levels, patient_age).
+cartilage_thickness, severity_levels, patient_age). To ensure the integrity and 
+reliability of future analyses, it is crucial to thoroughly clean the dataset 
+before applying any computational techniques.
 
 
 ### Step 4:
@@ -107,13 +109,21 @@ box_created <- makeBox(result, "fluid_levels","cartilage_thickness","severity_le
 # To view the box plots
 box_created
 ```
-The box plots compare the distribution of fluid levels, cartilage thickness, and
-patient age across different severity levels. This visualization helps in 
-identifying patterns and outliers in the data.
+This set of box plots illustrates key clinical measurements across four severity 
+levels of osteoarthritis. As severity increases, both fluid levels and cartilage
+thickness decrease, with the median fluid level being highest in the least severe 
+category and lowest in the most severe. Conversely, there is a positive correlation 
+between patient age and severity, indicating that older patients are likely to 
+experience more advanced stages of the disease. As severity levels increase, the 
+interquartile ranges for fluid levels and cartilage thickness widen, suggesting a 
+greater degree of variability in the disease's progression. As a result of these
+visualizations, we are able to demonstrate relationships between clinical 
+measurements and the severity of osteoarthritis, which can be used to formulate 
+further research and patient management strategies.
 
 ### Step 5a: 
-This function will focus on creating a scatter plot to examine the relationship 
-between fluid levels, cartilage thickness and patient age. As an example we will 
+**makeScatter** function will focus on creating a scatter plot to examine the relationship 
+between any two of the following variables: fluid levels, cartilage thickness and patient age. As an example, we will 
 create a scatter plot to examine the relationship between fluid levels and 
 cartilage thickness. 
 ```{r}
@@ -122,9 +132,16 @@ scatter_created <- makeScatter(result, "fluid_levels","cartilage_thickness")
 # To view the scatter plot with a line of regression
 scatter_created 
 ```
-The scatter plot illustrates the relationship between fluid levels and cartilage
-thickness, with a regression line(in red) indicating the direction of the trend. 
-In this way, correlations between these variables can be revealed.
+According to the scatter plot presented, fluid levels are correlated with 
+cartilage thickness in osteoarthritis. This equation suggests that for every
+unit increase in fluid levels, cartilage thickness increases by approximately 
+0.21 units, as indicated by the upward trend of the regression line. Observing 
+this pattern may indicate that higher fluid levels are associated with thicker 
+cartilage, which could be significant in the progression or treatment of the 
+disease. Based on the spread of data points around the line, it appears that 
+this relationship varies from person to person. This visual analysis provides 
+a clear depiction of how two critical clinical measurements may interact, 
+offering valuable insights for medical research and patient care.
 
 
 ### Step 5b: 
@@ -139,7 +156,13 @@ scatter_created_no_reg
 ```
 This scatter plot is similar to the previous scatter plot, but without the 
 regression line. This allows a direct assessment of the distribution of the 
-data points.
+data points. In this plot, the data points are dispersed across the plot. The 
+dispersion can imply a more complex relationship that may  
+be influenced by other factors not represented in this plot. This might suggest 
+researchers to consider additional variables or more sophisticated models to 
+understand the dynamics between fluid levels and cartridge thickness.
+
+
 
 <br>
 ## Package References

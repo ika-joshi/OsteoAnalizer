@@ -11,7 +11,7 @@ A data frame with 36 rows and 4 columns.
 U.S. Department of Health and Human Services
 }
 \usage{
-data(OA_data)
+OA_data
 }
 \description{
 This dataset, `OA_data`, contains information about patients with Osteoarthritis.
@@ -29,6 +29,8 @@ present in this project. The data was developed with reference to the data
 set collected from U.S. Department of Health and Human Services.
 }
 \examples{
-data(OA_data)
+\dontrun{
+ OA_data
+}
 }
 \keyword{datasets}
