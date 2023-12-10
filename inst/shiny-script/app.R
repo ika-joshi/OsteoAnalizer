@@ -147,7 +147,9 @@ server <- function(input, output) {
     shinyalert(title = "Example Dataset",
                text = "This example dataset has 36 entries with columns of
                fluid_levels, cartilage_thickness, severity_levels and patient_age.
-               Download and open it to have a better understanding of the dataset.",
+               The rows in this dataset correspond to individual patients from
+               whom the data was collected. Download and open it to have a
+               better understanding of the dataset.",
                type = "info")
   })
 
