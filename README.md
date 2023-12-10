@@ -145,19 +145,25 @@ contributions. To submit an issue, use the GitHub issues.
   |- data
     |- OA_data.rda
   |- DESCRIPTION
+  |- doc
+    |- Introduction_OsteoAnlizer.html
+    |- Introduction_OsteoAnlizer.R
+    |- Introduction_OsteoAnlizer.Rmd
   |- inst
+    |- CITATION
     |- extdata
       |- example_data.csv
       |- overview.jpg
+    |- shiny-script
+      |- app.R
   |- LICENSE
   |- LICENSE.md
   |- man
     |- CleanCSVFile.RD
-    |- figures
-      |- README-pressure-1.png
     |- makeBox.Rd
     |- makeScatter.Rd
     |- OA_data.Rd
+    |- runOsteoAnalizer.Rd
   |- NAMESPACE
   |- OsteoAnalizer.Rproj
   |- R
@@ -165,6 +171,7 @@ contributions. To submit an issue, use the GitHub issues.
     |- data.R
     |- makeBox.R
     |- makeScatter.R
+    |- runOsteoAnalizer.R
   |- README.md
   |- README.RMD
   |- tests
@@ -173,4 +180,5 @@ contributions. To submit an issue, use the GitHub issues.
       |- test-makeBox.R
       |- test_makeScatter.R
     |- testthat.R
+  |- vignettes
 ```
