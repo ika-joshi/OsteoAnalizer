@@ -104,12 +104,10 @@ server <- function(input, output) {
         selectInput("varOne", "Choose the first variable for scatter plot:",
                     choices = c(fluidLevels = input$fluid_levels,
                                 cartilageThickness = input$cartilage_thickness,
-                                severityLevels = input$severity_levels,
                                 patientAge = input$patient_age)),
         selectInput("varTwo", "Choose the second variable for scatter plot:",
-                    choices = c(fluidLevels = input$fluid_levels,
-                                cartilageThickness = input$cartilage_thickness,
-                                severityLevels = input$severity_levels,
+                    choices = c(cartilageThickness = input$cartilage_thickness,
+                                fluidLevels = input$fluid_levels,
                                 patientAge = input$patient_age)),
         checkboxInput("regLine", "Include Regression Line?", TRUE)
       )
